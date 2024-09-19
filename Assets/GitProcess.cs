@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
-public class GitProcess : MonoBehaviour
+public class GitProcess
 {
     private static int m_numOutputLines;
     private static StringBuilder m_output;
@@ -13,7 +14,7 @@ public class GitProcess : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Run(" --version");
+
     }
 
     // Update is called once per frame
@@ -22,23 +23,24 @@ public class GitProcess : MonoBehaviour
         
     }
 
-    public void Run(string arguments)
+    public static string Run(string arguments)
     {
         var startInfo = new ProcessStartInfo()
         {
             UseShellExecute = false,
             RedirectStandardOutput = true,
-            FileName = "git.exe",
+            FileName = "git",
             Arguments = arguments,
             WorkingDirectory = Application.dataPath
         };
         
         var process = System.Diagnostics.Process.Start(startInfo);
         string output = process.StandardOutput.ReadToEnd();
-        Console.WriteLine(output);
+        UnityEngine.Debug.Log(output);
         process.WaitForExit();
-        
-        /*Process gitProcess = new Process();
+        return output;
+        /*
+        Process gitProcess = new Process();
         gitProcess.StartInfo.FileName = "git";
         gitProcess.StartInfo.Arguments = arguments;
         gitProcess.StartInfo.WorkingDirectory = Application.dataPath;
@@ -69,7 +71,8 @@ public class GitProcess : MonoBehaviour
 
         gitProcess.Close();
 
-        return m_output.ToString();*/
+        Debug.Log(m_output.ToString());
+        //return m_output.ToString();*/
     }
     
     private static void OutputHandler(object sendingProcess,
@@ -86,5 +89,11 @@ public class GitProcess : MonoBehaviour
             // Add the text to the collected output.
             m_output.Append($"{outLine.Data}");
         }
+    }
+
+    public static void CreateReleaseTag()
+    {
+        var count  = Run(@"rev-list --count HEAD");
+        Run("tag -a v1.0.0.r"+count+" -m \"my version 1.4\"");
     }
 }

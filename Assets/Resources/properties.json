@@ -1,0 +1,21 @@
+{
+   "Properties":{
+      "GenieClass":"IFCFLOWSEGMENT",
+      "ifcflowsegment/objecttype":"Pipe Types:NLRS_52_PI_PVC U3 Grijs OD_Dyka",
+      "ifcpipesegmenttype/globalid":"3X9G6kcALAJgLdbMYLi0Ib",
+      "ifcpipesegmenttype/name":"Pipe Types:NLRS_52_PI_PVC U3 Grijs OD_Dyka",
+      "ifcpipesegmenttype/predefinedtype":".NOTDEFINED.",
+      "ifcpipesegmenttype/tag":"462211",
+      "other/category":"Pipes",
+      "other/family":"Pipe Types: NLRS_52_PI_PVC U3 Grijs OD_Dyka",
+      "other/family and type":"Pipe Types: NLRS_52_PI_PVC U3 Grijs OD_Dyka",
+      "other/family name":"Pipe Types",
+      "other/type":"Pipe Types: NLRS_52_PI_PVC U3 Grijs OD_Dyka",
+      "other/type id":"Pipe Types: NLRS_52_PI_PVC U3 Grijs OD_Dyka",
+      "pset_distributionflowelementcommon/reference":"Pipe Types:NLRS_52_PI_PVC U3 Grijs OD_Dyka",
+      "pset_elementshading/roughness":"0.003030",
+      "pset_manufacturertypeinformation/manufacturer":"Dyka",
+      "pset_productrequirements/category":"Pipes",
+      "pset_quantitytakeoff/reference":"Pipe Types:NLRS_52_PI_PVC U3 Grijs OD_Dyka"
+   }
+}
