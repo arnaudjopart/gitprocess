@@ -9,6 +9,6 @@ public class PostBuildProcess : IPostprocessBuildWithReport
     public int callbackOrder { get; }
     public void OnPostprocessBuild(BuildReport report)
     {
-        GitProcess.CreateReleaseTag();
+        GitAPI.CreateReleaseTag();
     }
 }
